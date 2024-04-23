@@ -123,6 +123,55 @@
             <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G"/>
         </filter>
     </svg>
+  
+<title>Cursor Trail</title>
+<style>
+    /* Style for the cursor trail element */
+    .cursor-trail {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: hotpink;
+        pointer-events: none; /* Ensure the cursor trail does not interfere with mouse events */
+        transition: transform 0.1s ease-out; /* Smooth transition for movement */
+    }
+</style>
+</head>
+<body>
+
+<!-- JavaScript to create the cursor trail -->
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var cursorTrail = []; // Array to hold cursor trail elements
+            var characterTrail = ['❤️','@', '®','◼','✴','☺','☀']
+          
+            function updateCursorTrail(event) {
+                var trailElement = document.createElement('div');
+                trailElement.style.position = 'absolute';
+                trailElement.style.width = '10px';
+                trailElement.style.height = '10px';
+                trailElement.style.color = 'darkturquoise';
+                trailElement.style.pointerEvents = 'none'; // Ensure the cursor trail does not interfere with mouse events
+                trailElement.style.transition = 'transform 0.1s ease-out'; // Smooth transition for movement
+                trailElement.style.left = event.clientX + 'px';
+                trailElement.style.top = event.clientY + 'px';
+                trailElement.innerText =             characterTrail[Math.floor(Math.random() *     characterTrail.length)];
+                
+                document.body.appendChild(trailElement);
+                
+                cursorTrail.push(trailElement);
+                
+                if (cursorTrail.length > 20) {
+                    var removedTrail = cursorTrail.shift();
+                    removedTrail.remove();
+                }
+            }
+            
+            document.addEventListener('mousemove', updateCursorTrail);
+        });
+    </script>
+
 </body>
 </html>
 
