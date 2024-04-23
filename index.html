@@ -1,20 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Realms Haiku</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #002233;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .haiku {
+            text-align: left;
+            color: #ffffff;
+            position: relative;
+        }
+        .haiku h1, .haiku h2, .haiku h3 {
+            margin: 0;
+            padding: 10px 0;
+            transition: transform 0.3s ease-in-out;
+        }
+        .haiku h1:hover, .haiku h2:hover, .haiku h3:hover {
+            transform: scale(1.1);
+        }
+        .haiku h2 {
+            font-size: 1.2em;
+        }
+        .haiku h3 {
+            font-size: 0.9em;
+        }
+        .heartbeat {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            z-index: -1;
+            animation: pulse 1.5s infinite alternate ease-in-out;
+        }
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform: rotate(-45deg);
+        }
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background-color: #ff6666;
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+        .heart:after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+        @keyframes pulse {
+            from {
+                transform: scale(0.8);
+            }
+            to {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="haiku">
+        <h1>life in zeroes, ones</h1>
+        <h2>virtual realms echoed through</h2>
+        <h3>digital heartbeats</h3>
+        <div class="heartbeat">
+            <div class="heart"></div>
+        </div>
+    </div>
+</body>
+</html>
 
-<style>
-  body {
-    background-image:   src=url('https://i.makeagif.com/media/11-15-2015/iHywJQ.gif');
-    background-size: cover;
-  }
-</style>
 
-<div>
-<h1 style="background-image: url('https://i.gifer.com/GlFO.gif'); background-repeat: repeat;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent; text-align:center; font:  bold 100px/100px Helvetica, Sans-Serif; color:darkmagenta; -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: darkmagenta;  letter-spacing: 8px; line-height: 0.8";>life in the digital age</h1>
 
-life in zeroes, ones
-virtual realms echoed through
-<a href="https://liu-michelle.github.io/intertwingularity/">digital heartbeats</a> 
-</div>
+
+
+
+
 
 
 
