@@ -1,13 +1,11 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Realms Haiku</title>
+    <title>Interwingularity Project</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #002233;
+            font-family: 'OCR A Std', monospace;
+            background-image: url('https://i.gifer.com/7nVc.gif');
             margin: 0;
             padding: 0;
             display: flex;
@@ -17,7 +15,12 @@
         }
         .haiku {
             text-align: left;
-            color: #ffffff;
+            color: lavenderblush;
+            text-shadow: 
+              -1px -1px 0 #000,  
+               1px -1px 0 #000,
+              -1px  1px 0 #000,
+               1px  1px 0 #000;
             position: relative;
         }
         .haiku h1, .haiku h2, .haiku h3 {
@@ -27,27 +30,28 @@
         }
         .haiku h1:hover, .haiku h2:hover, .haiku h3:hover {
             transform: scale(1.1);
+            color: hotpink;
         }
         .haiku h2 {
             font-size: 1.2em;
         }
         .haiku h3 {
-            font-size: 0.9em;
+            font-size: 1.3em;
         }
         .heartbeat {
             position: absolute;
-            bottom: 10px;
-            left: 50%;
+            bottom: -20px;
+            left: 0%;
             transform: translateX(-50%);
             width: 100px;
-            height: 100px;
+            height: 150px;
             z-index: -1;
             animation: pulse 1.5s infinite alternate ease-in-out;
         }
         .heart {
             position: relative;
-            width: 100px;
-            height: 100px;
+            width: 200px;
+            height: 200px;
             transform: rotate(-45deg);
         }
         .heart:before,
@@ -58,7 +62,7 @@
             top: 0;
             width: 50px;
             height: 80px;
-            background-color: #ff6666;
+            background-color: hotpink;
             border-radius: 50px 50px 0 0;
             transform: rotate(-45deg);
             transform-origin: 0 100%;
@@ -76,26 +80,56 @@
                 transform: scale(1.2);
             }
         }
+        /* Add pixelated text hover effect */
+        .pixelated-text {
+            transition: filter 0.3s ease-in-out; /* Add transition for smooth effect */
+        }
+
+        .pixelated-text:hover {
+            filter: url(#pixelated); /* Apply the pixelated filter on hover */
+        }
+
+        /* Define the SVG filter for pixelation */
+        svg {
+            position: absolute;
+            width: 0;
+            height: 0;
+        }
+        a {
+            text-decoration: none; /* Remove underline */
+            color: white; /* Change text color */
+        }
+        
+        /* Style for link on hover */
+        a:hover {
+            color: hotpink; /* Change text color on hover */
+        }
+        
+        /* Style for visited link */
+        a:visited {
+            color: white; /* Change text color of visited link */
+        }
     </style>
 </head>
 <body>
     <div class="haiku">
-        <h1>life in zeroes, ones</h1>
-        <h2>virtual realms echoed through</h2>
-        <h3>digital heartbeats</h3>
+        <h1 class="pixelated-text">LIFE IN ZEROES, ONES</h1>
+        <h2 class="pixelated-text">virtual realms echoed through</h2>
+        <h3 class="pixelated-text"><a href="https://liu-michelle.github.io/intertwingularity/">DIGITAL HEARTBEATS</a></h3>
         <div class="heartbeat">
             <div class="heart"></div>
         </div>
     </div>
+    
+    <!-- Add an SVG filter definition -->
+    <svg>
+        <filter id="pixelated">
+            <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" result="turbulence"/>
+            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+        </filter>
+    </svg>
 </body>
 </html>
-
-
-
-
-
-
-
 
 
 
